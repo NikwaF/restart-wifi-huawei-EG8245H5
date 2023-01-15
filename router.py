@@ -21,7 +21,7 @@ class LoginPage:
         req.encoding = req.apparent_encoding
         return req.text
 
-    def get_onttoken(self) -> str: 
+    def get_onttoken(self) -> None: 
         r = requests.get('http://192.168.18.1/index.asp', headers=self.headers,cookies=self.cookie, verify=False)
         soup = BeautifulSoup(r.text, "html.parser")
         self.onttoken = soup.find(id="onttoken").get("value")
